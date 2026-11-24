@@ -1,14 +1,14 @@
 export const meta = {
   apiVersion: 1,
-  key: "papayofen_tripo",
-  name: "Tripo",
-  icon: "text:Tr",
+  key: "tripo3d",
+  name: "Tripo3D",
+  icon: "Tripo.Color",
   description: {
     en: "Tripo 3D generation, model processing, and file upload",
     zh: "Tripo 三维生成、模型加工和文件上传",
   },
   version: "1.0.0",
-  author: { name: "PapaYofen", url: "https://github.com/PapaYofen" },
+  author: { name: "VAST" },
   website: "https://developers.tripo3d.ai",
   baseUrl: "https://openapi.tripo3d.ai/v3",
   models: ["tripo"],

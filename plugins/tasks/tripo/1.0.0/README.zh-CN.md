@@ -7,7 +7,7 @@ locale: zh-CN
 
 ## 渠道
 
-- 安装本插件后，渠道类型选任务插件（61），并绑定 `papayofen_tripo`。
+- 安装本插件后，渠道类型选任务插件（61），并绑定 `tripo3d`。
 - 密钥填 Tripo 的 API key。
 - API 地址留空时使用 `https://openapi.tripo3d.ai/v3`。
 - 要走 `openapi.tripo3d.com`，把 API 地址填成 `https://openapi.tripo3d.com/v3`。
@@ -49,7 +49,7 @@ locale: zh-CN
 
 查一个任务和查多个任务都读网关里保存的结果，不会当场再问 Tripo。返回里的 `task_id` 仍是网关任务号。
 
-这些路径也可以从 `/papayofen_tripo` 下面访问。
+这些路径也可以从 `/tripo3d` 下面访问。
 
 ## 计费
 
