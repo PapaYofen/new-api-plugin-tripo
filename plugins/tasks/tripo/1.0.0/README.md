@@ -8,7 +8,7 @@ Generates 3D models, images, and processed meshes with Tripo, and uploads source
 
 ## Channel setup
 
-- Install this plugin, then choose the Task Plugin (61) channel type and bind `tripo3d`.
+- Install this plugin, then choose the Task Plugin (61) channel type and bind `papayofen_tripo3d`.
 - The key is a Tripo API key.
 - Leave the API address empty to use `https://openapi.tripo3d.ai/v3`.
 - To use `openapi.tripo3d.com`, set the API address to `https://openapi.tripo3d.com/v3`.
@@ -50,7 +50,7 @@ A successful create returns a gateway task id, `task_` plus 32 characters. Later
 
 Single-task and batch queries read the stored task. They do not call Tripo again. The returned `task_id` is still the gateway task id.
 
-These paths are also served under `/tripo3d`.
+These paths are also served under `/papayofen_tripo3d`.
 
 ## Billing
 

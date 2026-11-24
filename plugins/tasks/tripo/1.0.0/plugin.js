@@ -1,6 +1,6 @@
 export const meta = {
   apiVersion: 1,
-  key: "tripo3d",
+  key: "papayofen_tripo3d",
   name: "Tripo3D",
   icon: "Tripo.Color",
   description: {

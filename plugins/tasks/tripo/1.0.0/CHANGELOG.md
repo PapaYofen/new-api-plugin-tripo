@@ -1,6 +1,6 @@
 ---
 changelogVersion: 1
-plugin: "tripo3d"
+plugin: "papayofen_tripo3d"
 version: "1.0.0"
 locale: "en"
 translations:
