@@ -14,6 +14,10 @@ export const meta = {
   models: ["tripo"],
   fetchMode: "per_task",
   upstreams: ["vendor", "new_api"],
+  // Pre-Prepare failures (TokenAuth, etc.) call native.error so Tripo SDK
+  // clients see the vendor envelope. Other plugins omit this and keep
+  // new_api_error for those early failures.
+  earlyNativeError: true,
   usageSchema: {
     // Estimated credits before the call, then Tripo's credits_consumed after it finishes.
     credits: {
@@ -420,7 +424,37 @@ export const native = {
       return reply;
     }
     const status = Number(error && error.httpStatus);
-    return { code: status >= 400 && status <= 599 ? status : 1, message: trimmed(error && error.message) || "request failed" };
+    const message = trimmed(error && error.message) || "request failed";
+    // Gateway token / account failures: same shape as Tripo's Invalid API key.
+    if (status === 401) {
+      return {
+        code: 2,
+        status: "error",
+        message: "Invalid API key",
+        suggestion: "Check if your credentials is valid",
+      };
+    }
+    if (status === 403) {
+      return {
+        code: 2010,
+        status: "error",
+        message: message,
+        suggestion: "Please purchase more credit",
+      };
+    }
+    if (status === 400) {
+      return {
+        code: 1004,
+        status: "error",
+        message: message,
+        suggestion: "Refer to the API documentation for parameter requirements",
+      };
+    }
+    return {
+      code: status >= 400 && status <= 599 ? status : 1,
+      status: "error",
+      message: message,
+    };
   },
 };
 
